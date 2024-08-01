@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			div{
+				/*일반적인 문서 흐름에 따라 배치하고(=static), 
+				static으로 배치했을 때를 기준으로 relative가 적용된다.
+				parent를 기준으로 top, left 등이 적용됨*/
+				position: relative; 
+				width: 100px;
+				height: 100px;  
+			}
+
+			#div1{
+				background:  #2eb82e;
+				top:0px;
+				left:0px;
+			}
+
+			#div2{
+				background: #ffcc00;
+				top:50px;
+				left:50px;
+			}
+			#div3{ 
+				/*원래 들어가야 하는 자리로 부터 100, 100 이다!!!
+				즉 static일 때의 노랑박스 밑에서부터 시작하여 100, 100
+				relative로 바뀐 자리랑 상관없음*/
+				background: #00a3cc;
+				top:100px;
+				left:100px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<h2>relative</h2>
+		<div id="div1">div1</div>
+		<div id="div2">div2</div>
+		<div id="div3">div3</div>
+
+	</body>
+</html>

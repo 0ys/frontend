@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			#div1{
+				background:  #2eb82e;
+				top:50px;
+				left:100px;
+				position: relative;
+				border: 1px solid red;
+				width: 300px;
+				height: 300px;
+			}
+
+			#div2{
+				position: absolute;
+				background: #ffcc00;
+				bottom: 0px;
+				right: 0px;
+				width: 100px;
+				height: 100px;
+			}
+			#div3{
+				position: absolute;
+				background: #00a3cc;
+				top: 50px;
+				left: 50px;
+				width: 50px;
+				height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--부모(relative, absolute, fixed) 기준으로 상대적 위치에 배치됨
+		부모가 static인 경우는 body 기준으로 배치됨-->
+		<h2>absolute</h2>
+		<div id="div1">div1
+			<div id="div2">div2</div>
+			<div id="div3">div3</div>
+		</div>
+
+	</body>
+</html>

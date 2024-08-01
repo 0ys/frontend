@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			div{
+				/*안쓴거나 마찬가지, top,left가 먹지 않음
+				일반적인 문서 흐름에 따라 배치됨*/
+				position: static; 
+				width: 100px;
+				height: 100px;  
+			}
+
+			#div1{
+				background:  #2eb82e;
+				top:50px;
+				left:50px;
+			}
+
+			#div2{
+				background: #ffcc00;
+				top:150px;
+				left:50px;
+			}
+			#div3{
+				background: #00a3cc;
+				top:200px;
+				left:50px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<h2>static</h2>
+		<div id="div1">div1</div>
+		<div id="div2">div2</div>
+		<div id="div3">div3</div>
+
+	</body>
+</html>
