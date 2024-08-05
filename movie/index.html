@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Documenttest</title>
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
   <header>
@@ -18,56 +19,49 @@
         <a href="#">로그아웃</a>
         <a href="#">회원가입</a>
         <a href="#">게시판</a>
-        <a href="#">마이패이지</a>
+        <a href="#">마이페이지</a>
     </nav>
   </header>
   <main>
     <section>
         <h1>영화목록</h1>
-        <ul>
-            <li>
+        <div id="movieList">
+            <div class="description">
                 <img src="./img/dune.jpg" alt="듄">
-                <p>듄</p><hr>
-                <p>모험<br>드니 뷜뇌브<br>155분</p>
-                <input type="button" value="찜">
-            </li>
-            <li>
+                <div id="dune">듄<br>모험<br>드니 뷜뇌브<br>155분</div>
+                <button class="saved">찜</button>
+            </div>
+            <div class="description">
                 <img src="./img/eternals.jpg" alt="이터널스">
-                <p>이터널스</p><hr>
-                <p>액션<br>클로이 자오<br>155분</p>
-                <input type="button" value="찜">
-            </li>
-            <li>
+                <div id="eternals">이터널스<br>액션<br>클로이 자오<br>155분</div>
+                <button class="saved">찜</button>
+            </div>
+            <div class="description">
                 <img src="./img/harrypoter_room.jpg" alt="해리포터와 비밀의 방">
-                <p>해리포터와 비밀의 방</p><hr>
-                <p>판타지<br>크리스 콜럼버스<br>162분</p>
-                <input type="button" value="찜">
-            </li>
-            <li>
+                <div id="harrypoter_room">해리포터와 비밀의 방<br>판타지<br>크리스 콜럼버스<br>162분</div>
+                <button class="saved">찜</button>
+            </div>
+            <div class="description">
                 <img src="./img/harrypoter_stone.jpg" alt="해리포터와 마법사의 돌">
-                <p>해리포터와 마법사의 돌</p><hr>
-                <p>판타지<br>크리스 콜럼버스<br>152분</p>
-                <input type="button" value="찜">
-            </li>
-            <li>
+                <div id="harrypoter_stone">해리포터와 마법사의 돌<br>판타지<br>크리스 콜럼버스<br>152분</div>
+                <button class="saved">찜</button>
+            </div>
+            <div class="description">
                 <img src="./img/load_of_ring.jpg" alt="반지의제왕: 왕의 귀환">
-                <p>반지의제왕: 왕의 귀환</p><hr>
-                <p>판타지<br>피터 잭슨<br>263분</p>
-                <input type="button" value="찜">
-            </li>
-            <li>
+                <div id="load_of_ring">반지의제왕: 왕의 귀환<br>판타지<br>피터 잭슨<br>263분</div>
+                <button class="saved">찜</button>
+            </div>
+            <div class="description">
                 <img src="./img/parasite.jpg" alt="기생충">
-                <p>기생충</p><hr>
-                <p>드라마<br>봉준호<br>131분</p>
-                <input type="button" value="찜">
-            </li>
-            <li>
+                <div id="parasite">기생충<br>드라마<br>봉준호<br>131분</div>
+                <button class="saved">찜</button>
+            </div>
+            <div class="description">
                 <img src="./img/venom.jpg" alt="베놈 2: 렛 데어 비 카니지">
-                <p>베놈 2: 렛 데어 비 카니지</p><hr>
-                <p>액션<br>앤디 서키스<br>97분</p>
-                <input type="button" value="찜">
-            </li>
-        </ul>
+                <div id="parasite">베놈 2: 렛 데어 비 카니지<br>액션<br>앤디 서키스<br>97분</div>
+                <button class="saved">찜</button>
+            </div>
+        </div>
     </section>
     <aside>
         <h1>찜리스트</h1>
@@ -75,12 +69,13 @@
     </aside>
   </main>
   <footer>
-    <ul>
-        <li><a href="#">개인정보처리방침</a></li>
-        <li><a href="#">이용약관</a></li>
-        <li><a href="#">오시는길</a></li>
-        <li>&copy;SSAFY 서울_13반_공예슬</li>
-    </ul>
+    <nav>
+        <a href="#">개인정보처리방침</a>
+        <a href="#">이용약관</a>
+        <a href="#">오시는길</a>
+        <span>&copy; SSAFY Corp.</span>
+    </nav>
   </footer>
 </body>
+<script src="./js/main.js" type="text/javascript"></script>
 </html>
