@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 프로토타입 공간</title>
+    <script>
+        // 3. prototype 공간 활용
+        // 공통의 함수를 prototype이라는 공간에 저장하고 객체들 간에 공유하는 방식
+
+        function User(name, age) {
+            this.age = age;
+            this.name = name;
+        }
+
+        User.prototype.count = 123;
+        User.prototype.showInfo = function () {
+                console.log("name: ", this.name, " age: ", this.age, " cnt: ", this.count);
+        }
+
+        var u1 = new User("kim", 22);
+        var u2 = new User("lee", 38);
+        var u3 = new User("park", 45);
+
+        u1.showInfo();
+        u2.showInfo();
+        u3.showInfo();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window의 함수들</title>
+</head>
+<body>
+    <div id="demo"></div>
+    <script>
+        // prompt(), alert(), confirm()은 함수인데 누구 객체의 함수일까?
+        // window 객체의 함수이다.
+        // 자바스크립트에서 사용할 수 있는 객체들이 많은데, 원칙적으로 객체 이름을 명시해줘야 함
+        // window만 예외로 아무 표시 없이 사용할 수 있다. 
+        // window가 가지고 있는 데이터나 함수는 바로 사용할 수 있다.
+        // window.prompt -> prompt
+        let name = window.prompt("enter your name ...", "harry potter"); // 입력창
+        if(name != null) alert("hello, "+name); // 경고창
+
+        var result = confirm("is sunny today?"); // yes or no
+        //if(result) alert("sunny today!");
+        //else alert("cloudy today...");
+
+        // DOM
+        // body가 아직 만들어지기 전에 getElementById()를 하면 에러가 발생함
+        // script가 head에 있으면 객체가 만들어지기 전 이므로 접근할 수 없음
+        // 자바스크립트는 body 밑에 작성하는 걸 권장함
+        if(result){
+            var v = document.getElementById("demo");
+            v.innerHTML = "<h1>hello, "+ name + "</h1>";
+        } else {
+            document.getElementById("demo").innerHTML = "<h1>bye, "+ name + "</h1>";
+        }
+
+    </script>
+</body>
+</html>

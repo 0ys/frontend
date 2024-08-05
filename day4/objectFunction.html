@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생성자 함수</title>
+    <script>
+        // 2. 생성자 함수 방식 : 함수 정의 방식과 동일
+        // 함수가 생성자 역할을 함, 객체 내부 데이터 등에 접근시 this 사용
+
+        // 사용자 정의 객체임
+        function User(name, age) { // 생성자 함수명의 첫 글자는 대문자로 시작
+            this.age = age;
+            this.name = name;
+            this.showInfo = function () {
+                console.log("name: ", this.name, " age : ", this.age);
+            }
+        }
+
+        // 똑같은 메소드(showInfo)는 생성되는 객체(u1, u2, u3)마다 가지고 있을 필요가 없음
+        // 자바에서 이를 추상화하여 부모에게 보내듯이
+        // 자바스크립트에서는 prototype이라는 객체에 showInfo를 보냄
+        // 그럼 User는 prototype의 메소드를 자동으로 받아옴
+        // -> ObjectPrototype.html 확인하기
+
+        var u1 = new User("kim", 22);
+        var u2 = new User("lee", 38);
+        var u3 = new User("park", 45);
+
+        u1.num = 12345;// 프로퍼티 추가 및 삭제 가능함
+
+        // 두 가지 방식으로 접근 가능
+        console.log(u1.num); // .은 num 자체를 key로 인식함
+        console.log(u1["num"]); // []은 문자열을 받기 때문에 변수가 가능
+
+        var xx = "name";
+        u2.name // 가능
+        //console.log(u2.name);
+        u2.xx // 접근 불가 : 키 자체로 xx를 찾아감
+        //console.log(u2.xx);
+        u2[xx] // 가능 : 키 이름이 계속 바뀌면 변수 처리해야함
+        //console.log(u2[xx]);
+
+        u1.showInfo();
+        u2.showInfo();
+        u3.showInfo();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

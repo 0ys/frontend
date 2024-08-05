@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function showTime() {
+            var time = new Date(); // 문장 실행 시점의 date 정보를 가져옴
+            console.log(time);
+        }
+
+        function stop() {
+            clearInterval(t); // setInterval로 시작한 반복 작업을 중지함
+        }
+
+        // 일정 시간 간격으로 지정된 함수를 반복 실행함
+        // showTime : 콜백 함수 - 우리가 직접 호출하는 것이 아니라 이름만 등록함
+        // showTime() 과 다르다!
+        var t = setInterval(showTime, 1000);
+        
+        // 일정 시간 후에 함수를 한번 실행함
+        // stop : callback 함수
+        // === 어떤 특정한 사건이 발생하면 자동으로 실행되는 함수
+        setTimeout(stop, 5000);
+    </script>
+</head>
+<body>
+    <button onclick="stop()">stop</button> <!--이벤트-->
+</body>
+</html>
