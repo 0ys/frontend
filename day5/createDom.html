@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>DOM TEST</h1>
+    <input type="button" value="add" onclick="addNode()">
+    <input type="button" value="add Btn" onclick="addInputNode()">
+    <hr>
+    <div id="result" style="border: 1px red solid; width: 300px; height: 300px; overflow: auto;"></div>
+    
+</body>
+<script>
+    var cnt = 0;
+    function addNode() {
+        var h1 = document.createElement("h1"); // <h1></h1>
+        h1.setAttribute("onclick", 'del(this)'); // <h1 onclick="del()"></h1>
+        // this 키워드로 자기 자신을 인자로 넘긴다.
+        var txt = document.createTextNode("hello, dom" + ++cnt); // text 생성
+        h1.appendChild(txt);
+
+        var div = document.getElementById("result");
+        div.appendChild(h1);
+    }
+    function del(that) {
+        // 클릭한 해당 h1인 that을 삭제
+        // that의 부모를 알아야 삭제할 수 있음
+        var p = that.parentNode; // div
+        p.removeChild(that);
+    }
+
+    function addInputNode() {
+        var div = document.createElement("div");
+        div.setAttribute("onclick", "del(this)");
+        var input = document.createElement("input");
+        var btn = document.createElement("button");
+        var text = document.createTextNode("del"+ ++cnt);
+        btn.appendChild(text);
+        div.appendChild(input);
+        div.appendChild(btn);
+
+        var container = document.getElementById("result");
+        container.appendChild(div);
+    }
+
+</script>
+</html>
