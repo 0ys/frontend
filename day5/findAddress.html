@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function process(that){
+		// that : 12345서울시 서초구 -> 우편번호와 주소로 분리
+		var postcode = that.substring(0, 5); // 0 부터 4까지 자름
+		console.log(postcode);
+
+		var addr = that.substring(5); // Start from position 5
+		console.log(addr);
+
+		// 분리한 두 개의 값을 메인 창에 setting
+		// opener가 곧 메인 창으로 팝업 창을 호출한 HTML이다.
+		opener.document.getElementById("addr1").value = postcode
+		opener.document.getElementById("addr2").value = addr
+
+		// 팝업창 닫기
+		close();
+	}
+</script>
+
+</head>
+<body>
+<h1>주소 찾기</h1>
+<a href="#" id="12345서울시 서초구" onclick="process(this.id)">12345 서울시 서초구</a><br>
+<a href="#" id="12367서울시 종로구" onclick="process(this.id)">12367 서울시 종로구</a><br>
+<a href="#" id="14560서울시 영등포구" onclick="process(this.id)">14560 서울시 영등포구</a><br>
+
+</body>
+</html>
+
+
+
+

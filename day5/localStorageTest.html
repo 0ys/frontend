@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Localstorage</title>
+    <script type="text/javascript">
+      function init() {
+        //1)localStorage 데이터 저장 방법 3가지
+        localStorage.num = 123;
+        localStorage["name"] = "harry";
+        localStorage.setItem("address", "london");//(key, value)
+        
+        sessionStorage.myscore=123; // 브라우저가 켜져있는 동안만 저장됨
+
+        //2)LocalStorage 데이터 취득 방법 3가지
+        var val = localStorage.num;
+        val += localStorage["name"];
+        val += localStorage.getItem("address");//key 기준으로 찾기
+
+        //데이터 출력
+        document.querySelector('#result').innerHTML = val;
+      }
+    </script>
+  </head>
+  <body onload="init()"> <!--브라우저의 모든 내용이 로딩이 끝나면 스크립트를 실행함-->
+    <div id="result"></div>
+  </body>
+</html>

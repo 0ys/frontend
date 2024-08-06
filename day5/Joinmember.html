@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//약관 동의 여부 체크하기
+	function agreeCheck(){
+		alert("동의해야 합니다.")
+		var ron = document.getElementById("on");
+		ron.checked = true; // 다시 on이 체크됨
+	}
+	
+	//아이디 중복 체크하기
+	function dupCheck(){
+		// tommy는 중복
+		// kim은 사용가능한 아이디입니다!
+
+	}
+	
+	//비밀번호 길이 체크하기
+	function lengthCheck(){
+		// 패스워드 길이가 안 맞으면 alert
+	}	
+	
+	//주민번호 앞자리 입력 후 뒷자리로 커서 이동 시키기
+	function moveNext(){
+		var id1 = document.querySelector("#idnum1")
+		var id2 = document.querySelector("#idnum2")
+
+		if(id1.length >= 6){
+			id2.focus()
+		}
+	}
+	
+	//팝업창 띄운 후 선택한 주소값 가져오기
+	//새 창이 뜨고 주소가 보임
+	function findAddress(){
+		open("./findAddress.html", "address", "width=400, height=400, scrollbars=yes, titlebar=1")
+	}
+	
+	//textarea내용 지우기
+	var flag = false;
+	function clearText(){
+		var tarea = document.querySelector("#ta")
+		console.log(tarea);
+		if(ta.innerText != null){
+			ta.value = "";
+		}
+	}
+	
+	//id와 pw가 빈칸인지 체크 후(alert) form의 action 값은 welcome.html로 지정 후 form 전송하기
+	function totalCheck(){
+		// id와 pw가 빈칸?
+
+		// else 모든 값이 다 맞게 입력되면
+		var ff = document.getElementById("f1"); // form 찾기
+		ff.action = " welcome.html" // 전송할 페이지 지정
+		ff.method = "post"
+		ff.submit() // form 서버로 전송
+	}
+
+</script>
+</head>
+<body><h2>회원 정보</h2>
+		
+		<form name="f1" id="f1">
+		
+		 <textarea name="ta" rows="10" cols="100" readonly style="text-align: left;">[서비스 이용약관]
+		
+		제 1장 총칙
+		
+		제 1조 목적 
+		이 약관은 (주)마이드림(이하 "회사")가 제공하는 마이드림 및 마이드림 관련 제반 서비스의 이용과 관련하여, "회사"와 "회원"의 권리, 의무 및 책임 사항, 기타 필요한 사항을 규정함을 목적으로 합니다. 
+		
+		제 2조 정의 
+		이 약관에서 사용하는 용어의 정의는 다음과 같습니다. 
+		  1. 서비스 : 구현되는 단말기(PC, TV, 휴대형 단말기 등 각종 유·무선 장치를 포함)와 관계없이 "회원"이 이용할 수 있는 마이드림 및 마이드림 관련 제반 서비스 
+		  2. 회원 : "회사"의 "서비스"에 접속하여 이 약관에 따라 "회사"와 이용 계약을 체결하고, "회사"가 제공하는 "서비스"를 이용하는 고객 
+		  3. 아이디(ID) : "회원"의 식별과 "서비스" 이용을 위하여 "회원"이 정하고 "회사"가 승인하는 문자와 숫자의 조합 
+		  4. 비밀번호 : "회원"이 부여받은 "아이디(ID)"와 일치되는 "회원"임을 확인할 목적으로, "회원" 자신이 정한 문자 또는 숫자의 조합 
+		  5. 게시물 : "회원"이 "서비스"를 이용하면서 "서비스" 상에 게시한 글, 사진, 동영상, 음성 및 각종 파일 및 링크 등(형태와 유형을 제한하지 않음) 
+		  6. 유료 서비스 : "회사"가 유료로 제공하는 각종 온라인 디지털 콘텐츠(각종 정보 콘텐츠 및 특정 "서비스"에 대한 확장·추가 기능 포함) 및 제반 서비스 
+		
+		</textarea><br/><br/>
+		<!--radio 버튼의 name은 같아야 한 그룹으로 인식함-->
+		<input type="radio" name="agree" id="on" checked="checked">약관에 동의 합니다 &nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="radio" name="agree" id="off" onclick="agreeCheck()" >약관에 동의 하지 않습니다 
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type=button name=printbutton2 value="약관인쇄" onclick="print()"><br><br>
+		
+		  아이디:<input type="text" id="id">
+		  <input type=button name=dupcheck value="중복체크" onclick="dupCheck()" >
+		  <span id="msg"></span>
+		  <br><br>
+		  패스워드: 	<input type="password" name="pw" maxlegth="10" id="pw" onblur="lengthCheck()">
+		  (최소 6글자이상 10글자 이내)
+		  <br/><br>
+		  주민번호: <input type=text id=idnum1 onkeyup="moveNext()">-<input type=password id=idnum2><br>
+		  주소: <input type="text" id="addr1" disabled>-<input type="text" id="addr2" disabled>
+		  <input type="button" value="주소찾기" onclick="findAddress()"><br>
+		  <br>
+		  <textarea rows=10 cols= 80 id="ta" onfocus="clearText()">남기실 말씀...</textarea>		  
+		  <br>
+		
+		  <input type=button name=submitbutton value="회원가입" onclick="totalCheck()">
+		  <input type=reset name=submitbutton value="원래대로" >
+		  <br><br>		
+		</form>
+		
+		</body>
+		</html>
+
+		
+		
+		
+		
+		
