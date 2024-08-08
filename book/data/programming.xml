@@ -32,12 +32,12 @@
 		<price>26500</price>
 		<description>초보자를 위한 탄탄한 문법 설명, 실생활화 비교하는 이해하기 쉬운 객체지향 개념 설명, 개발 생산성을 높이는 유용한 이클립스(Eclipse) 사용 팁과 실무에서 많이 사용되는 필수 개념 정리 및 다양한 예제를 통한 기본 이론 정리와 활용하였다.</description>
 	</book>
-	<!-- <book>
+	<book>
 		<isbn>p_book05</isbn>
 		<title>토비의 스프링 3.1</title>
 		<author>이일민</author>
 		<apublisher>에이콘출판</apublisher>
 		<price>40000</price>
 		<description>단순한 예제를 스프링 3.0과 스프링 3.1의 기술을 적용하며 발전시켜 나가는 과정을 통해 스프링의 핵심 프로그래밍 모델인 IoC/DI, PSA, AOP의 원리와 이에 적용된 다양한 디자인 패턴, 프로그래밍 기법을 이해할 수 있도록 도와준다. 이어지는 에서 상세히 소개하는 스프링 3.0과 스프링 3.1의 방대한 기술을 쉽게 이해하고 효과적으로 응용하는 데 필요한 기반 지식을 쌓도록 도와준다.</description>
-	</book>	-->
+	</book>	
 </booklist>
