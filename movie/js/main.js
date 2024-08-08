@@ -37,14 +37,10 @@ function updateWish() {
     if (movies.length === 0) {
         list.textContent = "아직 찜한 영화가 없습니다...";
     } else {
-        // Create HTML for each movie and join them into a single string
         const contents = movies.map(movie => `
-            <div class="movieItem">
-                <p>${movie.title} | ${movie.genre} | ${movie.director} | ${movie.runningTime}</p>
-            </div>
+            <li class="list-group-item">${movie.title} | ${movie.genre} | ${movie.director} | ${movie.runningTime}</li>
         `).join('');
 
-        // Set the HTML content of the list element
         list.innerHTML = contents;
     }
 }
@@ -64,18 +60,24 @@ function addMovieList() {
 
         json.movies.forEach(movie => {
             var divMovie = document.createElement("div");
-            divMovie.className = "movie";
+            divMovie.className = "card m-2 row-lg-3 row-md-2 row-sm-12";
+            divMovie.style = "width: 16rem;"
 
             var img = document.createElement("img");
             img.setAttribute("src", movie.img);
+            img.className = "card-img-top";
             divMovie.appendChild(img);
 
-            divMovie.innerHTML += "<p class='title'>" + movie.title + "</p>";
-            divMovie.innerHTML += "<p class='genre'>" + movie.genre + "</p>";
-            divMovie.innerHTML += "<p class='director'>" + movie.director + "</p>";
-            divMovie.innerHTML += "<p class='runningTime'>" + movie.runningTime + "</p>";
-            divMovie.innerHTML += "<button class='saved'>찜</button>";
+            var divBody = document.createElement("div");
+            divBody.className = "card-body";
 
+            divBody.innerHTML += "<span class='title fw-bold'>" + movie.title + "</span><br>";
+            divBody.innerHTML += "<span class='genre'>"+ movie.genre + "</span><br>";
+            divBody.innerHTML += "<span class='director'>" + movie.director + "</span><br>";
+            divBody.innerHTML += "<span class='runningTime'>" + movie.runningTime + "분</span><br>";
+            divBody.innerHTML += "<a href='#' class='saved btn btn-sm btn-outline-danger float-end'><i class='bi bi-heart-fill'></i></a><br>";
+
+            divMovie.appendChild(divBody);
             movieListContainer.appendChild(divMovie);
         });
 

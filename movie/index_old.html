@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body onload="main()">
+  <header>
+    <a href="#">영화관리</a>
+    <form action="#">
+        <input type="text" placeholder="제목을 입력하세요.">
+        <input type="submit" name="검색">
+    </form>
+    <nav>
+        <a href="#">로그인</a>
+        <a href="#">로그아웃</a>
+        <a href="#">회원가입</a>
+        <a href="#">게시판</a>
+        <a href="#">마이페이지</a>
+    </nav>
+  </header>
+  <main>
+    <section class="left">
+        <h1>영화목록</h1>
+        <div id="movieList"></div>
+    </section>
+    <aside class="right">
+        <h1>찜리스트</h1>
+        <div id="wishList"></div>
+    </aside>
+  </main>
+  <footer>
+    <nav>
+        <a href="#">개인정보처리방침</a>
+        <a href="#">이용약관</a>
+        <a href="#">오시는길</a>
+        <span>&copy; SSAFY Corp.</span>
+    </nav>
+  </footer>
+</body>
+<script src="./js/main.js" type="text/javascript"></script>
+</html>
