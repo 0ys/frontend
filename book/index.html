@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SSAFY BOOK CAFE</title>
+    <link rel="stylesheet" href="./css/main.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -209,24 +210,19 @@
 
         <!-- 중앙 center content start -->
         <div class="col-md-9 mt-3">
+          <!-- 지도 -->
+          <div class="map_wrap">
+            <div
+              id="map"
+              style="width: 100%; height: 100%; position: relative; overflow: hidden"
+            ></div>
+          </div>
           <!-- 프로그래밍 도서 목록 -->
           <h3 class="mt-4 ms-2">[ 프로그래밍 언어 ]</h3>
           <div class="row ms-1" id="pbooks"></div>
           <!-- 에세이 도서 목록 -->
           <h3 class="mt-4 ms-2">[ 에세이 ]</h3>
-          <div class="row ms-1" id="ebooks">
-            <div class="card col-lg-3 col-md-6">
-              <img src="./assets/img/book/p_book01.png" class="card-img-top mt-2" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">점프 투 파이썬</h5>
-                <p class="card-text">설명이 좋아요!!!</p>
-                <p class="card-text fw-bold text-end">가격: 18000원</p>
-                <div class="text-center">
-                  <a href="#" class="btn btn-outline-primary btn-sm">구매하기</a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="row ms-1" id="ebooks"></div>
           <!-- 인기글 & 최신글 -->
           <div class="row">
             <div class="col-lg-6">
@@ -296,7 +292,7 @@
 
     <!-- 하단 footer start -->
     <footer
-      class="navbar navbar-expand-lg navbar-light bg-light container-fluid justify-content-center"
+      class="navbar navbar-expand-lg navbar-light bg-light container-fluid justify-content-center py-3 mt-5"
     >
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -446,5 +442,29 @@
       crossorigin="anonymous"
     ></script>
     <script src="./assets/js/main.js"></script>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=personalAPIKey"
+    ></script>
+    <script>
+      var mapContainer = document.getElementById("map"), // 지도를 표시할 div
+        mapOption = {
+          center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+          level: 3, // 지도의 확대 레벨
+        };
+
+      var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+      // 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+      var mapTypeControl = new kakao.maps.MapTypeControl();
+
+      // 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+      // kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+      map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+      // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+      var zoomControl = new kakao.maps.ZoomControl();
+      map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+    </script>
   </body>
 </html>
